@@ -2,6 +2,8 @@ import { reactive } from "vue";
 
 export const store = reactive({
     apiUrl: 'https://api.themoviedb.org/3/search/movie?api_key=8fa7dd7bd5f47a9e64b8736c3ca91492&query=ritorno+al+fut',
+    listFilm:[],
+
                             // nav
     // img netflix
     img: 'https://www.freepnglogos.com/uploads/netflix-logo-history-32.png',
@@ -9,34 +11,28 @@ export const store = reactive({
     ulList:[
         {
             title: 'home',
-            link: '#',
-            metodo: 'home'
+            link: '#'
         },
         {
             title: 'tv show',
-            link: '#',
-            metodo: 'home'
+            link: '#'
         },
         {
             title: 'movies',
-            link: '#',
-            metodo: 'home'
+            link: '#'
         },
         {
             title: 'tv series',
-            link: '#',
-            metodo: 'home'
+            link: '#'
         },
         {
             title: 'new & popular',
-            link: '#',
-            metodo: 'home'
+            link: '#'
         },
         {
             title: 'my list',
-            link: '#',
-            metodo: 'home'
+            link: '#'
         }
     ],
-
+    heroIndex:'0',
 })

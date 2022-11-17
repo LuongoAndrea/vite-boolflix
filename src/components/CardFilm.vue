@@ -1,0 +1,72 @@
+<template>
+    <div class="cardsFilm d-flex justify-content-around">
+        <div v-for="(item,index) in store.listFilm.results" :key="item.id" class="cardFilm" @click="goHero(index)">
+            <img :src="'https://image.tmdb.org/t/p/original/'+item.backdrop_path" :alt="item.title">
+            
+            <div class="opacity"></div>
+            <span class="title">{{item.title}}</span>
+        </div>
+    </div>
+</template>
+
+<script>
+import {store} from '../store';
+import axios from 'axios';
+    export default {
+        name:'CardFilm',
+        data() {
+            return {
+                store,
+            }
+        },
+        methods:{
+            getCharacters() {
+                axios.get(this.store.apiUrl).then(
+                    (res)=>{
+                        this.store.listFilm= res.data;
+                        console.log(this.store.listFilm.results);
+                        console.log(this.store.listFilm.results[0].title)
+                    }
+                );
+            },
+            goHero(id){
+                store.heroIndex= id;
+                console.log(store.heroIndex)
+            }
+        },
+        created(){
+            this.getCharacters();
+        }
+    }
+</script>
+
+<style lang="scss" scoped>
+.cardsFilm{
+    
+    .cardFilm{
+        position: relative;
+        color: white;
+        border-radius: 10px;
+        overflow: hidden;
+        width: calc((100% / 4) - 80px);
+        img{
+            width: 100%;
+        }
+        .title{
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+        }
+        .opacity{
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            bottom: 0px;
+            left: 0;
+            background: rgb(0,0,0);
+            background: linear-gradient(0deg, rgba(0,0,0,0.6946488067883403) 12%, rgba(255,255,255,0) 100%);
+        }
+}
+}
+
+</style>

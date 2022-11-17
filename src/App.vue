@@ -1,15 +1,23 @@
 <template>
   <NavBar/>
+  <main>
+    <HeroComponent/>
+    <CardFilm/>
+  </main>
 </template>
 
 <script>
-import axios from 'axios';
+
+import CardFilm from './components/CardFilm.vue';
+import HeroComponent from './components/HeroComponent.vue';
 import NavBar from './components/NavBar.vue';
 import { store } from './store'
   export default {
     components:{
-      NavBar,
-    },
+    NavBar,
+    CardFilm,
+    HeroComponent
+},
     data() {
       return {
         store,
