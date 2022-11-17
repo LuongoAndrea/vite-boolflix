@@ -16,9 +16,10 @@ import axios from 'axios';
         name:'CardFilm',
         data() {
             return {
+                indexhero: store.heroIndex,
                 store,
-                str: String(store.listFilm.results[store.heroIndex].vote_average),
-                splitedStr: ""
+                str: String(store.listFilm.results[store.indexhero].vote_average),
+                splitedStr: "",
             }
         },
         methods:{
@@ -33,8 +34,8 @@ import axios from 'axios';
             },
             goHero(id){
                 // this.splitedStr.splice(0, this.splitedStr.length);
-                store.heroIndex= id;
-                console.log(store.heroIndex);
+                store.indexhero= id;
+                console.log(store.indexhero);
 
                 this.splitedStr = this.str.split(".");
                 if(this.splitedStr.length == 1){
