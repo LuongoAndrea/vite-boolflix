@@ -34,5 +34,5 @@ export const store = reactive({
             link: '#'
         }
     ],
-    heroIndex:'0',
+    heroIndex:'1'
 })

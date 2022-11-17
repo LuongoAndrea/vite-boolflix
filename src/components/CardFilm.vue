@@ -31,7 +31,8 @@ import axios from 'axios';
             },
             goHero(id){
                 store.heroIndex= id;
-                console.log(store.heroIndex)
+                console.log(store.heroIndex);
+                
             }
         },
         created(){

@@ -6,6 +6,7 @@
         <div class="opacity"></div>
         <div class="title">
             <h1>{{store.listFilm.results[store.heroIndex].title}}</h1>
+            <h4>{{store.listFilm.results[store.heroIndex].original_title}}</h4>
             <span>{{store.listFilm.results[store.heroIndex].overview}}</span>
         </div>
             
