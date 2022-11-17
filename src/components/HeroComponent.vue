@@ -7,6 +7,10 @@
         <div class="title">
             <h1>{{store.listFilm.results[store.heroIndex].title}}</h1>
             <h4>{{store.listFilm.results[store.heroIndex].original_title}}</h4>
+            <div v-for="(stella,index) in store.voto" :key="index" class="d-flex">
+                <span>{{stella}}</span>
+            </div>
+            
             <span>{{store.listFilm.results[store.heroIndex].overview}}</span>
         </div>
             

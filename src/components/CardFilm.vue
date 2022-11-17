@@ -17,6 +17,8 @@ import axios from 'axios';
         data() {
             return {
                 store,
+                str: String(store.listFilm.results[store.heroIndex].vote_average),
+                splitedStr: ""
             }
         },
         methods:{
@@ -30,9 +32,28 @@ import axios from 'axios';
                 );
             },
             goHero(id){
+                // this.splitedStr.splice(0, this.splitedStr.length);
                 store.heroIndex= id;
                 console.log(store.heroIndex);
-                
+
+                this.splitedStr = this.str.split(".");
+                if(this.splitedStr.length == 1){
+                    for (let i = 0; i < parseInt(this.splitedStr[0]); i++) {
+                        store.voto.push('<i class="fa-solid fa-star"></i>');
+                    }
+                }
+                else{
+                    for (let i = 0; i < parseInt(this.splitedStr[0]); i++) {
+                        store.voto.push('<i class="fa-solid fa-star"></i>');
+                    }
+                    if(parseInt(this.splitedStr[1])>=5){
+                        store.voto.push('<i class="fa-solid fa-star-half"></i>');
+                    }
+                }
+                console.log('array stelle: '+store.voto);
+                console.log('voto: '+this.str);
+                console.log('array voto: '+this.splitedStr)
+                console.log(this.splitedStr)
             }
         },
         created(){

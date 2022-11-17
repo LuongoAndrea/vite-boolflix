@@ -34,5 +34,6 @@ export const store = reactive({
             link: '#'
         }
     ],
-    heroIndex:'1'
+    heroIndex: 1,
+    voto:[],
 })
