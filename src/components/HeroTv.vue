@@ -11,7 +11,9 @@
                 <span>{{stella}}</span>
             </div>
             
-            <span>{{store.heroTv.overview}}</span>
+            <div @click="descrizione()">
+                <span >{{store.descrizioneTagliataTv}}</span>
+            </div>
         </div>
             
         
@@ -29,8 +31,19 @@
             }
         },
         methods:{
+            descrizione(){
+                store.countTv++;
+                if(store.countTv == 1){
+                    store.descrizioneTagliataTv = store.heroMovie.overview;
+                }
+                else{
+                    store.countTv = 0;
+                    store.descrizioneTagliataTv = store.heroMovie.overview.slice(0, 150) + ' ...';
+                }
+                
 
-        }
+            }
+    }
     }
 </script>
 

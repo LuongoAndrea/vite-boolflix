@@ -11,7 +11,7 @@
                 <span>{{stella}}</span>
             </div>
             <div @click="descrizione()">
-                <span >{{store.descrizioneTagliata}}</span>
+                <span >{{store.descrizioneTagliataMovie}}</span>
             </div>
             
         </div>
@@ -32,13 +32,13 @@
         },
         methods:{
             descrizione(){
-                store.count++;
-                if(store.count == 1){
-                    store.descrizioneTagliata = store.heroMovie.overview;
+                store.countMovie++;
+                if(store.countMovie == 1){
+                    store.descrizioneTagliataMovie = store.heroMovie.overview;
                 }
                 else{
-                    store.count = 0;
-                    store.descrizioneTagliata = store.heroMovie.overview.slice(0, 150) + ' ...';
+                    store.countMovie = 0;
+                    store.descrizioneTagliataMovie = store.heroMovie.overview.slice(0, 150) + ' ...';
                 }
                 
 

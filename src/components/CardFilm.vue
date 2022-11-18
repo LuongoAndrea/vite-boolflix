@@ -45,7 +45,7 @@ import HeroTv from './HeroTv.vue';
             const params = store.params;
             axios.get(apiurl, { params }).then((res) =>{
                 store.heroMovie = res.data.results[i]
-                this.getLastMessage()
+                this.getDescrizioneMovie()
             })
             
         },
@@ -54,13 +54,17 @@ import HeroTv from './HeroTv.vue';
             const params = store.params;
             axios.get(apiurl, { params }).then((res) =>{
                 store.heroTv = res.data.results[i]
-                
+                this.getDescrizioneTv();
             })
         },
-        getLastMessage(){
-                    store.descrizioneTagliata = store.heroMovie.overview.slice(0, 200) + ' ...';
-                    store.count = 0;
-                }
+        getDescrizioneMovie(){
+            store.descrizioneTagliataMovie = store.heroMovie.overview.slice(0, 200) + ' ...';
+            store.countMovie = 0;
+        },
+        getDescrizioneTv(){
+            store.descrizioneTagliataTv = store.heroTv.overview.slice(0, 200) + ' ...';
+            store.countTv = 0;
+        }
     },
     created() {
         this.goHeroTv(1),

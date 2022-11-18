@@ -46,6 +46,8 @@ export const store = reactive({
             link: '#'
         }
     ],
-    descrizioneTagliata: '',
-    count: 0
+    descrizioneTagliataMovie: '',
+    countMovie: 0,
+    descrizioneTagliataTv: '',
+    countTv: 0
 })
