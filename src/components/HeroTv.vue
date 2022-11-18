@@ -34,11 +34,11 @@
             descrizione(){
                 store.countTv++;
                 if(store.countTv == 1){
-                    store.descrizioneTagliataTv = store.heroMovie.overview;
+                    store.descrizioneTagliataTv = store.heroTv.overview;
                 }
                 else{
                     store.countTv = 0;
-                    store.descrizioneTagliataTv = store.heroMovie.overview.slice(0, 150) + ' ...';
+                    store.descrizioneTagliataTv = store.heroTv.overview.slice(0, 150) + ' ...';
                 }
                 
 
