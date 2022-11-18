@@ -1,7 +1,7 @@
 <template>
     <section>
-        <HeroComponent/>
         <h2 id="movie">Movie</h2>
+        <HeroComponent/>
         <div class="cardsFilm d-flex justify-content-around">
             <div v-for="(item,index) in store.movie" :key="item.id" class="cardFilm col-lg-3" @click="goHeroFilm(index)" >
                 <img :src="'https://image.tmdb.org/t/p/original/'+item.backdrop_path" :alt="item.title">
@@ -13,6 +13,7 @@
     </section>
     <section>
         <h2 id="tv">Tv Show</h2>
+        <HeroTv/>
         <div class="cardsFilm d-flex justify-content-around">
             <div v-for="(item,index) in store.tv" :key="item.id" class="cardFilm col-lg-3" @click="goHeroTv(index)" >
                 <img :src="'https://image.tmdb.org/t/p/original/'+item.backdrop_path" :alt="item.title">
@@ -30,6 +31,7 @@
 import {store} from '../store';
 import axios from 'axios';
 import HeroComponent from './HeroComponent.vue';
+import HeroTv from './HeroTv.vue';
     export default {
     name: "CardFilm",
     data() {
@@ -44,11 +46,22 @@ import HeroComponent from './HeroComponent.vue';
             axios.get(apiurl, { params }).then((res) =>{
                 store.heroMovie = res.data.results[i]
             })
+        },
+        goHeroTv(i){
+            const apiurl = store.baseUrl + store.endPoint.tvs;
+            const params = store.params;
+            axios.get(apiurl, { params }).then((res) =>{
+                store.heroTv = res.data.results[i]
+            })
         }
     },
     created() {
+        this.goHeroTv(0),
+        this.goHeroFilm(0)
     },
-    components: { HeroComponent }
+    components: { 
+        HeroComponent,
+        HeroTv }
 }
 </script>
 

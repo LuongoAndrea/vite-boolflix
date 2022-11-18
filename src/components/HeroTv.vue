@@ -1,17 +1,17 @@
 <template>
     <div class="hero">
         <div class="img">
-            <img :src="'https://image.tmdb.org/t/p/original/'+store.heroMovie.backdrop_path" :alt="store.heroMovie.title">
+            <img :src="'https://image.tmdb.org/t/p/original/'+store.heroTv.backdrop_path" :alt="store.heroTv.title">
         </div>
         <div class="opacity"></div>
         <div class="title">
-            <h1>{{store.heroMovie.title}}</h1>
-            <h4>{{store.heroMovie.original_title}}</h4>
+            <h1>{{store.heroTv.name}}</h1>
+            <h4>{{store.heroTv.original_name}}</h4>
             <div v-for="(stella,index) in store.voto" :key="index" class="d-flex">
                 <span>{{stella}}</span>
             </div>
             
-            <span>{{store.heroMovie.overview}}</span>
+            <span>{{store.heroTv.overview}}</span>
         </div>
             
         
@@ -22,7 +22,7 @@
     import {store} from '../store';
 
     export default {
-        name:'HeroComponent',
+        name:'HeroTv',
         data() {
             return {
                 store,

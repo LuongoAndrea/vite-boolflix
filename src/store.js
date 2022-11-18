@@ -13,9 +13,9 @@ export const store = reactive({
         language: 'it-IT'
     },
     heroMovie:[],
+    heroTv:[],
     movie:[],
     tv:[],
-    activeIndex: '0',
                             // nav
     // img netflix
     img: 'https://www.freepnglogos.com/uploads/netflix-logo-history-32.png',
