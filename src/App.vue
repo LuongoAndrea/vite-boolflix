@@ -1,7 +1,6 @@
 <template>
   <NavBar/>
   <main>
-  
     <CardFilm/>
   </main>
 </template>
@@ -36,7 +35,6 @@ import { store } from './store'
             axios.get(apiurl, { params }).then((res) =>{
               console.log(res.data.results)
                 store.movie = res.data.results
-                console.log(store.movie[store.activeIndex].title)
             })
         },
         getSeries(){
@@ -54,6 +52,10 @@ import { store } from './store'
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" >
+main{
+  overflow-y: scroll;
+  height: calc(100vh - 10vh);
 
+}
 </style>

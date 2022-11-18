@@ -10,8 +10,10 @@
             <div v-for="(stella,index) in store.voto" :key="index" class="d-flex">
                 <span>{{stella}}</span>
             </div>
+            <div @click="descrizione()">
+                <span >{{store.descrizioneTagliata}}</span>
+            </div>
             
-            <span>{{store.heroMovie.overview}}</span>
         </div>
             
         
@@ -29,7 +31,18 @@
             }
         },
         methods:{
+            descrizione(){
+                store.count++;
+                if(store.count == 1){
+                    store.descrizioneTagliata = store.heroMovie.overview;
+                }
+                else{
+                    store.count = 0;
+                    store.descrizioneTagliata = store.heroMovie.overview.slice(0, 150) + ' ...';
+                }
+                
 
+            }
         }
     }
 </script>
@@ -61,6 +74,10 @@
             position: absolute;
             bottom: 0;
             left: 0;
+            
+        }
+        span{
+            cursor: pointer;
         }
     }
 </style>

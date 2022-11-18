@@ -43,7 +43,7 @@
 nav{
     background: rgb(0,0,0);
     background: linear-gradient(180deg, rgba(0,0,0,0.6946488067883403) 18%, rgba(0,212,255,0) 100%);
-    height: 80px;
+    height: 10vh;
     padding: 10px;
     img{
         
@@ -54,6 +54,10 @@ nav{
     }
     a{
         color: white;
+        text-transform: capitalize;
+    }
+    a:hover{
+        color: rgb(206, 200, 200);
     }
     div.search{
         margin: 10px 20px 0 0;

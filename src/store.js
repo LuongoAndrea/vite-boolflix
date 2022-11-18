@@ -27,7 +27,7 @@ export const store = reactive({
         },
         {
             title: 'tv show',
-            link: '#tv'
+            link: '#'
         },
         {
             title: 'movies',
@@ -35,7 +35,7 @@ export const store = reactive({
         },
         {
             title: 'tv series',
-            link: '#'
+            link: '#tv'
         },
         {
             title: 'new & popular',
@@ -46,7 +46,6 @@ export const store = reactive({
             link: '#'
         }
     ],
-    methods: {
-        
-    },
+    descrizioneTagliata: '',
+    count: 0
 })

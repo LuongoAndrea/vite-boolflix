@@ -47,7 +47,7 @@
             bottom: 0px;
             left: 0;
             background: rgb(0,0,0);
-            background: linear-gradient(90deg, rgba(0,0,0,0.6946488067883403) 50%, rgba(255,255,255,0) 100%);
+            background: linear-gradient(90deg, rgba(0,0,0,0.6946488067883403) 20%, rgba(255,255,255,0) 100%);
         }
         img{
             position: relative;
@@ -64,3 +64,4 @@
         }
     }
 </style>
+
