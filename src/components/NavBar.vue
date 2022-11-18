@@ -14,7 +14,7 @@
         <div class="col-auto search">
             <label class="visually-hidden">search</label>
             <div class="input-group">
-                <input type="text" class="form-control" id="search" placeholder="Search">
+                <input type="text" @keyup="performSearch" class="form-control" id="search" placeholder="Search" v-model.trim="text">
             </div>
         </div>
        </div>
@@ -28,12 +28,12 @@
         data() {
             return {
                 store,
-                
+                text:'',
             }
         },
         methods: {
-            home(){
-                console.log('ciao')
+            performSearch(){
+                store.params.query = this.text;
             }
         },
     }

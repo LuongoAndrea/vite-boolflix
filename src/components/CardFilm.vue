@@ -1,77 +1,65 @@
 <template>
-    <div class="cardsFilm d-flex justify-content-around">
-        <div v-for="(item,index) in store.listFilm.results" :key="item.id" class="cardFilm" @click="goHero(index)">
-            <img :src="'https://image.tmdb.org/t/p/original/'+item.backdrop_path" :alt="item.title">
-            
-            <div class="opacity"></div>
-            <span class="title">{{item.title}}</span>
+    <section>
+        <HeroComponent/>
+        <h2 id="movie">Movie</h2>
+        <div class="cardsFilm d-flex justify-content-around">
+            <div v-for="(item,index) in store.movie" :key="item.id" class="cardFilm col-lg-3" @click="goHeroFilm(index)" >
+                <img :src="'https://image.tmdb.org/t/p/original/'+item.backdrop_path" :alt="item.title">
+                
+                <div class="opacity"></div>
+                <span class="title">{{item.title}}</span>
+            </div>  
         </div>
-    </div>
+    </section>
+    <section>
+        <h2 id="tv">Tv Show</h2>
+        <div class="cardsFilm d-flex justify-content-around">
+            <div v-for="(item,index) in store.tv" :key="item.id" class="cardFilm col-lg-3" @click="goHeroTv(index)" >
+                <img :src="'https://image.tmdb.org/t/p/original/'+item.backdrop_path" :alt="item.title">
+                
+                <div class="opacity"></div>
+                <span class="title">{{item.name}}</span>
+            </div>
+            
+        </div>
+    </section>
+    
 </template>
 
 <script>
 import {store} from '../store';
 import axios from 'axios';
+import HeroComponent from './HeroComponent.vue';
     export default {
-        name:'CardFilm',
-        data() {
-            return {
-                indexhero: store.heroIndex,
-                store,
-                str: String(store.listFilm.results[store.indexhero].vote_average),
-                splitedStr: "",
-            }
-        },
-        methods:{
-            getCharacters() {
-                axios.get(this.store.apiUrl).then(
-                    (res)=>{
-                        this.store.listFilm= res.data;
-                        console.log(this.store.listFilm.results);
-                        console.log(this.store.listFilm.results[0].title)
-                    }
-                );
-            },
-            goHero(id){
-                // this.splitedStr.splice(0, this.splitedStr.length);
-                store.indexhero= id;
-                console.log(store.indexhero);
-
-                this.splitedStr = this.str.split(".");
-                if(this.splitedStr.length == 1){
-                    for (let i = 0; i < parseInt(this.splitedStr[0]); i++) {
-                        store.voto.push('<i class="fa-solid fa-star"></i>');
-                    }
-                }
-                else{
-                    for (let i = 0; i < parseInt(this.splitedStr[0]); i++) {
-                        store.voto.push('<i class="fa-solid fa-star"></i>');
-                    }
-                    if(parseInt(this.splitedStr[1])>=5){
-                        store.voto.push('<i class="fa-solid fa-star-half"></i>');
-                    }
-                }
-                console.log('array stelle: '+store.voto);
-                console.log('voto: '+this.str);
-                console.log('array voto: '+this.splitedStr)
-                console.log(this.splitedStr)
-            }
-        },
-        created(){
-            this.getCharacters();
+    name: "CardFilm",
+    data() {
+        return {
+            store,
+        };
+    },
+    methods: {
+        goHeroFilm(i){
+            const apiurl = store.baseUrl + store.endPoint.movies;
+            const params = store.params;
+            axios.get(apiurl, { params }).then((res) =>{
+                store.heroMovie = res.data.results[i]
+            })
         }
-    }
+    },
+    created() {
+    },
+    components: { HeroComponent }
+}
 </script>
 
 <style lang="scss" scoped>
 .cardsFilm{
-    
+    overflow-x: scroll;
     .cardFilm{
         position: relative;
         color: white;
         border-radius: 10px;
         overflow: hidden;
-        width: calc((100% / 4) - 80px);
         img{
             width: 100%;
         }

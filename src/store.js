@@ -1,9 +1,21 @@
+import axios from "axios";
 import { reactive } from "vue";
 
 export const store = reactive({
-    apiUrl: 'https://api.themoviedb.org/3/search/movie?api_key=8fa7dd7bd5f47a9e64b8736c3ca91492&query=ritorno+al+fut',
-    listFilm:[],
-
+    baseUrl : 'https://api.themoviedb.org/3/',
+    endPoint:{
+        movies:'search/movie',
+        tvs: 'search/tv',
+    }, 
+    params:{
+        api_key: '8fa7dd7bd5f47a9e64b8736c3ca91492',
+        query: 's',
+        language: 'it-IT'
+    },
+    heroMovie:[],
+    movie:[],
+    tv:[],
+    activeIndex: '0',
                             // nav
     // img netflix
     img: 'https://www.freepnglogos.com/uploads/netflix-logo-history-32.png',
@@ -15,11 +27,11 @@ export const store = reactive({
         },
         {
             title: 'tv show',
-            link: '#'
+            link: '#tv'
         },
         {
             title: 'movies',
-            link: '#'
+            link: '#movie'
         },
         {
             title: 'tv series',
@@ -34,6 +46,7 @@ export const store = reactive({
             link: '#'
         }
     ],
-    heroIndex: '1',
-    voto:[],
+    methods: {
+        
+    },
 })

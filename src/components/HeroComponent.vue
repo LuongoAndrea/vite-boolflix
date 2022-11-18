@@ -1,17 +1,17 @@
 <template>
     <div class="hero">
         <div class="img">
-            <img :src="'https://image.tmdb.org/t/p/original/'+store.listFilm.results[store.indexhero].backdrop_path" alt="">
+            <img :src="'https://image.tmdb.org/t/p/original/'+store.heroMovie.backdrop_path" :alt="store.heroMovie.title">
         </div>
         <div class="opacity"></div>
         <div class="title">
-            <h1>{{store.listFilm.results[store.indexhero].title}}</h1>
-            <h4>{{store.listFilm.results[store.indexhero].original_title}}</h4>
+            <h1>{{store.heroMovie.title}}</h1>
+            <h4>{{store.heroMovie.original_title}}</h4>
             <div v-for="(stella,index) in store.voto" :key="index" class="d-flex">
                 <span>{{stella}}</span>
             </div>
             
-            <span>{{store.listFilm.results[store.indexhero].overview}}</span>
+            <span>{{store.heroMovie.overview}}</span>
         </div>
             
         
@@ -26,9 +26,11 @@
         data() {
             return {
                 store,
-                indexhero: store.heroIndex,
             }
         },
+        methods:{
+
+        }
     }
 </script>
 
